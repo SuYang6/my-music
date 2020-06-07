@@ -4,11 +4,11 @@
 import {createStore, compose, applyMiddleware} from 'redux'
 
 import rootReducer from './reducer/index'
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory} from 'history'
 import { routerMiddleware } from 'react-router-redux'
+export const history = createBrowserHistory();
 
 // Create a history of your choosing (we're using a browser history in this case)
-export const history = createHistory();
 // Build the middleware for intercepting and dispatching navigation actions
 const historyMiddleware = routerMiddleware(history);
 // 初始值

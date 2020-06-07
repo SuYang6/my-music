@@ -52,7 +52,7 @@ function _getSongLyric(id) {
 // 获取音乐url
 
 function _getSongUrl(id) {
-  const url = `${baseUrl}/music/url`;
+  const url = `${baseUrl}/song/url`;
   const data = {
     id: id
   };

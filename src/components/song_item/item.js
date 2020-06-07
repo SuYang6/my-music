@@ -34,7 +34,7 @@ class Item extends Component {
           </div>
           <div data-id={id} className="artist-wrapper">
             <span data-id={id} className={className}> </span>
-            <span data-id={id} className="artists">{artists} {album}</span>
+            <span data-id={id} className="artists">{artists}-{album}</span>
           </div>
         </div>
         <span data-id={id} className="icon iconfont icon-play01"></span>

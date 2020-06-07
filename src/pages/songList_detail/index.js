@@ -34,17 +34,20 @@ class SongDetail extends Component {
     getSongListDetail(songListId)
       .then((response) => {
         if (response.code === 200) {
-          const {result} = response;
-          const {creator, tracks} = result;
+          const { playlist} = response;
+          console.log(response);
+          
+          const { creator, tracks } = playlist;
           let detail = {
-            coverImgUrl: result.coverImgUrl,
-            playCount: result.playCount,
-            name: result.name,
-            commentCount: result.commentCount,
-            shareCount: result.shareCount,
-            subscribedCount: result.subscribedCount
+            coverImgUrl: playlist.coverImgUrl,
+            playCount: playlist.playCount,
+            name: playlist.name,
+            commentCount: playlist.commentCount,
+            shareCount: playlist.shareCount,
+            subscribedCount: playlist.subscribedCount
           };
           this.insertSqData(tracks);
+          
           this.setState(Object.assign(this.state, {
             creator: creator,
             detail: detail,
@@ -57,21 +60,8 @@ class SongDetail extends Component {
 
   // 处理sq数据
   insertSqData(tracks) {
-    // const len = tracks.length;
     const {setSonglist} = this.props;
-    // for (let i = 0; i < len; i++) {
-    //   const {maxbr} = privileges[i];
-    //   Object.assign(tracks[i], {
-    //     maxbr:maxbr
-    //   })
-    // }
-    // this.setState(
-    //   Object.assign(this.state,{
-    //     tracks: tracks
-    //   })
-    // );
     setSonglist(tracks);
-    // console.log(tracks);
   }
 
   render() {

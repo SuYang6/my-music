@@ -41,7 +41,6 @@ class Disc extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {currentTime} = nextProps;
-    console.log(currentTime);
     this.scrollLyric(currentTime)
   }
 

@@ -23,6 +23,7 @@ class Carousel extends Component {
           this.setState(Object.assign(this.state,{
             banners: res.banners
           }))
+          
         }
       });
   }
@@ -34,11 +35,11 @@ class Carousel extends Component {
 
   render() {
     const {banners, index} = this.state;
-    const carousel = banners ? banners.map((banner) => {
+    const carousel = banners ? banners.map((banners,ind) => {
         return (
-          <div key={banner.encodeId} className="imgWrapper">
-            <img src={banner.pic} alt="banner"/>
-            <span style={{backgroundColor: `${banner.titleColor}`}} className="tag">{banner.typeTitle}</span>
+          <div key={ind} className="imgWrapper">
+            <img src={banners.imageUrl} alt="banner" />
+            <span style={{backgroundColor: `${banners.titleColor}`}} className="tag">{banners.typeTitle}</span>
           </div>
         )
       }) : <p>正在加载数据</p>;
@@ -49,7 +50,7 @@ class Carousel extends Component {
     }}>
       {carousel}
     </ReactSwipe> : '';
-    const point = banners ? banners.map((banner, num) => {
+    const point = banners ? banners.map((banners, num) => {
         return (
           <li key={num} className={num === index ? 'active' : ''}>
 
